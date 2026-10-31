@@ -6,8 +6,8 @@
 // @author       Lintel
 // @match        https://rbs.singaporetech.edu.sg/*
 // @exclude      https://rbs.singaporetech.edu.sg/Files/*
-// @updateURL    https://leeguanfeng.com/lintel-privacy/lintel.meta.js
-// @downloadURL  https://leeguanfeng.com/lintel-privacy/lintel.user.js
+// @updateURL    https://lintel.leeguanfeng.com/lintel.meta.js
+// @downloadURL  https://lintel.leeguanfeng.com/lintel.user.js
 // @run-at       document-idle
 // @grant        none
 // @noframes
