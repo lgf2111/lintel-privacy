@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lintel
 // @namespace    sit-lintel
-// @version      1.0.0.202611010900
+// @version      1.0.1.202611021521
 // @description  Unofficial, faster board for SIT's room booking system. Runs in your own session and never books by itself. Not affiliated with SIT.
 // @author       Lintel
 // @match        https://rbs.singaporetech.edu.sg/*
