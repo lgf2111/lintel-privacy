@@ -2,10 +2,169 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="refresh" content="0; url=/install" />
-<title>Lintel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lintel: every SIT room on one screen</title>
+<meta name="description" content="Lintel is a free, unofficial tool that shows every SIT room and slot on one screen. Made by a student. Not affiliated with SIT." />
+<meta property="og:title" content="Lintel: every SIT room on one screen" />
+<meta property="og:description" content="A free, unofficial room booking tool made by an SIT student." />
+<meta property="og:image" content="https://lintel.leeguanfeng.com/images/share.jpg" />
+<meta property="og:url" content="https://lintel.leeguanfeng.com/" />
 <link rel="icon" type="image/svg+xml" href="/icon.svg" />
 <link rel="icon" type="image/png" sizes="128x128" href="/icon128.png" />
+<link rel="apple-touch-icon" href="/icon128.png" />
+<style>
+  :root { --bg: #fbfaf7; --panel: #efede7; --text: #1c1b1d; --muted: #5a5853; --line: #dcd9d1; --red: #da1a21; --on-red: #ffffff; --link: #b5141a; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #1c1b1d; --panel: #29272a; --text: #f4f3f1; --muted: #bdbab3; --line: #3b393c; --link: #f59a9e; } }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background: var(--bg); }
+  a { color: var(--link); }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; color: var(--text); text-decoration: none; }
+  .brand img { width: 30px; height: 30px; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 15px; margin-left: 18px; white-space: nowrap; }
+  .bar nav a:hover { color: var(--text); }
+  .hero { padding: 40px 0 28px; }
+  h1 { font-size: clamp(38px, 7vw, 64px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 16px; max-width: 760px; }
+  .lead { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; padding: 12px 20px; font-weight: 600; color: var(--on-red); background: var(--red); border-radius: 8px; text-decoration: none; }
+  .btn.alt { color: var(--text); background: transparent; border: 1px solid var(--line); }
+  .tag { margin: 18px 0 0; font-size: 15px; color: var(--muted); }
+  .shot { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--panel); }
+  .hero .shot { margin-top: 32px; }
+  section { padding: 44px 0; }
+  h2 { font-size: clamp(27px, 4vw, 36px); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 12px; }
+  h3 { font-size: 19px; margin: 0 0 6px; }
+  .sub { color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid p, .card p { margin: 0; color: var(--muted); }
+  .feature { display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; align-items: center; padding: 20px 0; }
+  .feature p { margin: 0; color: var(--muted); }
+  .panel { background: var(--panel); }
+  .checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 32px; padding: 0; margin: 0; list-style: none; }
+  .checks b { display: block; }
+  .checks span { color: var(--muted); }
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+  .get { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; padding: 22px; border: 1px solid var(--line); border-radius: 12px; }
+  .card .btn { margin-top: auto; }
+  footer { padding: 28px 0 40px; font-size: 14px; color: var(--muted); }
+  footer a { margin-right: 16px; }
+  @media (max-width: 760px) {
+    .grid, .get, .checks, .feature { grid-template-columns: 1fr; }
+    .feature { gap: 16px; }
+    .feature .shot { order: 2; }
+    section { padding: 32px 0; }
+    .bar nav a { margin-left: 14px; }
+  }
+  @media (max-width: 420px) { .bar nav a:not(:last-child) { display: none; } }
+</style>
 </head>
-<body><a href="/install">Install Lintel</a></body>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/"><img src="/icon.svg" alt="" width="30" height="30" />Lintel</a>
+    <nav><a href="#safety">Safety</a><a href="#faq">FAQ</a><a href="#get">Get Lintel</a></nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <h1>Every SIT room, on one screen.</h1>
+  <p class="lead">Stop opening rooms one by one. Lintel is a free tool that shows every room and time slot for the day at a glance, so you can book in a few clicks.</p>
+  <div class="actions">
+    <a class="btn" href="#how">See how it works</a>
+    <a class="btn alt" href="#safety">Is it safe?</a>
+  </div>
+  <p class="tag">Made by an SIT student. Unofficial, and not affiliated with SIT.</p>
+  <div class="shot"><img src="/images/board.jpg" alt="Lintel board with rooms in rows and half-hour slots in columns. Booked slots are blue." width="1280" height="800" /></div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">Lintel gives the booking site a simpler layout. It runs in your browser while you’re logged in to your own account.</p>
+    <div class="grid">
+      <div><h3>1. Log in as usual</h3><p>Sign in on the normal booking site. Lintel never sees your password.</p></div>
+      <div><h3>2. See the whole day</h3><p>Each row is a room and each column is half an hour. Blue means booked.</p></div>
+      <div><h3>3. Pick and confirm</h3><p>Select your slots and press Confirm. Nothing is booked until you do.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What you can do</h2>
+    <div class="feature">
+      <div><h3>Book several slots at once</h3><p>Select a few slots, even across rooms, then review them before you confirm.</p></div>
+      <div class="shot"><img src="/images/booking.jpg" alt="Confirm booking dialog showing the room, date and selected slots." width="1280" height="800" loading="lazy" /></div>
+    </div>
+    <div class="feature">
+      <div><h3>Book lab equipment</h3><p>Browse equipment by type and lab, and see each item’s own hours.</p></div>
+      <div class="shot"><img src="/images/equipment.jpg" alt="Equipment board listing items in rows with their available slots." width="1280" height="800" loading="lazy" /></div>
+    </div>
+    <div class="feature">
+      <div><h3>Laptop or phone, light or dark</h3><p>Use it in Chrome, on iPhone or on Android. Your bookings, credits and cancellations are all in one dashboard.</p></div>
+      <div class="shot"><img src="/images/dark.jpg" alt="Lintel board in dark theme." width="1280" height="800" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<section id="safety" class="panel">
+  <div class="wrap">
+    <h2>What Lintel does, and doesn’t do</h2>
+    <p class="sub">You should know what you’re installing, so here it is plainly.</p>
+    <ul class="checks">
+      <li><b>Never sees your password</b><span>You log in on the booking site itself, and Lintel stays out of it.</span></li>
+      <li><b>Never books by itself</b><span>Bookings and cancellations only happen when you confirm them.</span></li>
+      <li><b>No account, no ads, no analytics</b><span>It has no server of its own and doesn’t track you.</span></li>
+      <li><b>Only works on the booking site</b><span>It runs on that one website and nowhere else.</span></li>
+      <li><b>Your data stays on your device</b><span>It keeps a few things locally so pages open quickly.</span></li>
+      <li><b>Sends reports only if you choose</b><span>“Report a problem” opens a form that you can edit, and it’s sent only if you submit it.</span></li>
+    </ul>
+    <p style="margin:24px 0 0">Read the full <a href="/privacy">privacy policy</a>.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Is this made by SIT?</summary><p>No. Lintel is an independent student project, and it isn’t affiliated with or endorsed by SIT. If you have a problem with your booking itself, contact SIT as usual.</p></details>
+    <details><summary>Is it free?</summary><p>Yes, it’s free, with no ads or sign-up.</p></details>
+    <details><summary>Who can use it?</summary><p>Anyone with an SIT account who can already use the booking site. It only shows what you could already see there.</p></details>
+    <details><summary>Are my bookings real?</summary><p>Yes. Lintel uses the same booking system, so your bookings are the same as ones made on the normal site.</p></details>
+    <details><summary>Why does the phone version need another app?</summary><p>Phone browsers don’t support Chrome extensions, so Lintel runs as a small script. On iPhone that uses the free Userscripts app, and on Android it uses Tampermonkey in Firefox. You can remove it at any time.</p></details>
+    <details><summary>How do I stop using it?</summary><p>Remove it from Chrome, Userscripts or Tampermonkey, and the booking site goes back to normal.</p></details>
+    <details><summary>Something’s not working. Who do I tell?</summary><p>Use <a href="https://forms.gle/MW5gxfkwn6kkfVbo9">Report a problem</a>. Please don’t include other people’s names or IDs.</p></details>
+  </div>
+</section>
+
+<section id="get" class="panel">
+  <div class="wrap">
+    <h2>Get Lintel</h2>
+    <p class="sub">Free, and it takes about a minute. Choose where you’ll use it.</p>
+    <div class="get">
+      <div class="card"><h3>Chrome</h3><p>For laptops and desktops, from the Chrome Web Store.</p><a class="btn" href="/install#chrome">Set up on Chrome</a></div>
+      <div class="card"><h3>iPhone</h3><p>Uses the free Userscripts app with Safari.</p><a class="btn" href="/install#iphone">Set up on iPhone</a></div>
+      <div class="card"><h3>Android</h3><p>Uses Firefox with Tampermonkey.</p><a class="btn" href="/install#android">Set up on Android</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="/privacy">Privacy policy</a><a href="https://forms.gle/MW5gxfkwn6kkfVbo9">Report a problem</a></p>
+    <p>Lintel is an unofficial student project and is not affiliated with or endorsed by the Singapore Institute of Technology. © 2026 Lee Guan Feng.</p>
+  </div>
+</footer>
+</body>
 </html>
