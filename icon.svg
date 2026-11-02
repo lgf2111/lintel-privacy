@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Lintel toolbar icon: red tile, dark lintel beam, white L monogram -->
+  <rect x="0" y="0" width="128" height="128" rx="26" fill="#da1a21"/>
+  <rect x="30" y="30" width="68" height="13" rx="5" fill="#0b0c0e"/>
+  <path d="M46 48 h14 v44 h26 v14 H46 Z" fill="#ffffff"/>
+</svg>
