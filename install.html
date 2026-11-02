@@ -14,6 +14,11 @@
   li { margin-bottom: 8px; }
   .btn { display: block; margin: 16px 0; padding: 14px 16px; text-align: center; font-weight: 600; color: #fff; background: #da1a21; border-radius: 8px; text-decoration: none; }
   section { scroll-margin-top: 16px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  img.step { display: block; width: 100%; height: auto; margin: 12px 0; border: 1px solid #dcd9d1; border-radius: 10px; }
+  img.step.phone { max-width: 320px; margin-left: auto; margin-right: auto; }
+  .btn.alt { color: #1c1b1a; background: transparent; border: 1px solid #dcd9d1; }
+  section + section { margin-top: 44px; padding-top: 8px; border-top: 1px solid #dcd9d1; }
   section:target h2 { color: #da1a21; }
   .note { padding: 12px; font-size: 14px; background: #f1f0ec; border-radius: 8px; }
   @media (prefers-color-scheme: dark) { body { color: #f4f3f1; background: #1c1b1d; } .note { background: #2c2a2d; } a:not(.btn) { color: #f59a9e; } }
@@ -27,23 +32,61 @@
 
 <section id="chrome">
 <h2>Chrome</h2>
-<p>For laptops and desktops.</p>
-<ol>
-  <li>Tap the button below and choose Add to Chrome.</li>
-  <li>Open the booking site and log in.</li>
-</ol>
-<a class="btn" href="https://chromewebstore.google.com/detail/gighmpamoclmaahceadehebkobcgmlbc">Add to Chrome</a>
+<p>For laptops and desktops. It takes about a minute.</p>
+
+<h3>1. Add it from the Chrome Web Store</h3>
+<p>Open the store page and click <b>Add to Chrome</b>.</p>
+<a class="btn" href="https://chromewebstore.google.com/detail/gighmpamoclmaahceadehebkobcgmlbc">Open the Chrome Web Store</a>
+<img class="step" src="/images/install/chrome-1.jpg" alt="Lintel on the Chrome Web Store, with the Add to Chrome button marked." loading="lazy" />
+
+<h3>2. Confirm</h3>
+<p>Click <b>Add extension</b>.</p>
+<img class="step" src="/images/install/chrome-2.jpg" alt="Chrome's Add Lintel pop-up, with the Add extension button marked." loading="lazy" />
+<p class="note">Chrome says Lintel can “read and change your data” on <code>rbs.singaporetech.edu.sg</code>. That’s how it changes the page layout. It’s limited to that one site. See <a href="/#safety">what Lintel does and doesn’t do</a>.</p>
+
+<h3>3. Pin it (optional)</h3>
+<p>Click the puzzle piece at the top right of Chrome, then click the pin next to Lintel so it’s easy to find.</p>
+<img class="step" src="/images/install/chrome-3.jpg" alt="The Chrome extensions button and the pin icon next to Lintel, both marked." loading="lazy" />
+
+<h3>4. Open the booking site</h3>
+<p>Go to <a href="https://rbs.singaporetech.edu.sg">rbs.singaporetech.edu.sg</a> and log in as usual. Lintel appears by itself.</p>
+<img class="step" src="/images/after.jpg" alt="The Lintel board in Chrome, showing rooms and time slots." loading="lazy" />
 </section>
 
 <section id="iphone">
 <h2>iPhone</h2>
-<ol>
-  <li>Install the free <a href="https://apps.apple.com/app/userscripts/id1463298887">Userscripts</a> app and open it once.</li>
-  <li>In Settings, go to Apps, Safari, Extensions. Turn on Userscripts and allow it on <code>rbs.singaporetech.edu.sg</code> and this site.</li>
-  <li>In Safari, tap the button below, then tap the Userscripts icon in the address bar and install.</li>
-  <li>Open the booking site and log in.</li>
-</ol>
+<p>Lintel runs in Safari with the help of a free app called Userscripts.</p>
+
+<h3>1. Get the Userscripts app</h3>
+<p>Install it from the App Store. It’ll say <b>Get</b> if you don’t have it yet.</p>
+<a class="btn alt" href="https://apps.apple.com/app/userscripts/id1463298887">Open the App Store</a>
+<img class="step" src="/images/install/iphone-1.jpg" alt="Userscripts in the App Store, with the main button marked." loading="lazy" />
+
+<h3>2. Open the app once</h3>
+<p>Open Userscripts, then close it. You don’t need to change anything.</p>
+<img class="step" src="/images/install/iphone-2.jpg" alt="The Userscripts app showing its icon and a note about turning on the Safari extension." loading="lazy" />
+
+<h3>3. Find it in Settings</h3>
+<p>Open <b>Settings</b>, then <b>Apps</b>, <b>Safari</b> and <b>Extensions</b>. Tap <b>Userscripts</b>.</p>
+<img class="step" src="/images/install/iphone-3.jpg" alt="Userscripts listed in Safari's Extensions settings, marked." loading="lazy" />
+
+<h3>4. Turn it on</h3>
+<p>Turn on <b>Allow Extension</b>. Under website access, allow <code>rbs.singaporetech.edu.sg</code> and <code>lintel.leeguanfeng.com</code>.</p>
+
+<h3>5. Install Lintel</h3>
+<p>In Safari, tap the button below, then tap the Userscripts icon in the address bar and install. You’ll see Lintel in the Userscripts list.</p>
 <a class="btn" href="/lintel.user.js">Install on iPhone</a>
+<img class="step" src="/images/install/iphone-5.jpg" alt="The Userscripts panel with Lintel listed and marked." loading="lazy" />
+
+<h3>6. Open the booking site</h3>
+<p>Go to <a href="https://rbs.singaporetech.edu.sg">rbs.singaporetech.edu.sg</a> in Safari and log in as usual. Lintel appears by itself.</p>
+<img class="step phone" src="/images/install/iphone-6.jpg" alt="The Lintel dashboard on iPhone." loading="lazy" />
+
+<h3>Using it</h3>
+<p>Search for a room, then tap free slots on the board. Swipe sideways to see later times.</p>
+<img class="step phone" src="/images/install/iphone-7.jpg" alt="The Lintel board on iPhone, with rooms and booked slots." loading="lazy" />
+<p>Check your selection and tap <b>Book this slot</b>. Nothing is booked until you confirm.</p>
+<img class="step phone" src="/images/install/iphone-8.jpg" alt="The Selected slots panel on iPhone with a Book this slot button." loading="lazy" />
 </section>
 
 <section id="android">
